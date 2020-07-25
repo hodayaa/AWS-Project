@@ -42,9 +42,9 @@
 		</div>
 	</center>
 	<script>
-function ADCounterP(id) {
+function ADCounterP(ids) {
     var xmlHttp = new XMLHttpRequest();
-    var theUrl = "http://albProj-1590904284.us-east-1.elb.amazonaws.com/ad/inc?id=id"
+    var theUrl = "https://5mumn2h6tb.execute-api.us-east-1.amazonaws.com/updateADcounter/ids"
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
