@@ -44,7 +44,7 @@
 	<script>
 function ADCounterP(ids) {
     var xmlHttp = new XMLHttpRequest();
-    var theUrl = "https://5mumn2h6tb.execute-api.us-east-1.amazonaws.com/updateADcounter/ids"
+    var theUrl = "https://5mumn2h6tb.execute-api.us-east-1.amazonaws.com/updateADcounter/"+ids
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
