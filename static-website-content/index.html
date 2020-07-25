@@ -28,13 +28,13 @@
 			<H2>Advertisement </H2>
 		</p>
 		<div>			
-			<img display: inline-block id="AdImg1" onmouseover="ADCounterP(1)" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD1.jpg>			
+			<img display: inline-block id="AdImg1" onmouseover="ADCounterP(1,'AdCount1')" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD1.jpg>			
 			<p id="AdText1"></p>			
 			<p id="AdCount1"></p>
-			<img display: inline-block id="AdImg2" onmouseover="ADCounterP(2)" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD2.jpg>			
+			<img display: inline-block id="AdImg2" onmouseover="ADCounterP(2,'AdCount2')" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD2.jpg>			
 			<p id="AdText2"></p>			
 			<p id="AdCount2"></p>
-			<img display: inline-block id="AdImg3" onmouseover="ADCounterP(3)" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD3.jpg>		
+			<img display: inline-block id="AdImg3" onmouseover="ADCounterP(3,'AdCount3')" src=https://my-bucket7117.s3.amazonaws.com/project+images/AD3.jpg>		
 			<p id="AdText3"></p>			
 			<p id="AdCount3"></p>
 		</div>
@@ -42,11 +42,15 @@
 		</div>
 	</center>
 	<script>
-function ADCounterP(ids) {
+function ADCounterP(ids,adc) {
     var xmlHttp = new XMLHttpRequest();
     var theUrl = "https://5mumn2h6tb.execute-api.us-east-1.amazonaws.com/updateADcounter/"+ids;
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
+    
+    var resp = xmlHttp.responseText;
+    console.log(resp);
+    document.getElementById(adc).innerHTML=resp;	
     return xmlHttp.responseText;
 }
 </script>
